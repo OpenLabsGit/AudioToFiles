@@ -36,7 +36,7 @@ async function makeRequest(url) {
 }
 
 const splashText = {
-  
+
 }
 
 
@@ -102,13 +102,23 @@ downloadBtn.addEventListener('click', async () => {
       }
       downloadLoader.style.display = 'none';
 
-      const videoElement = document.createElement('video');
-      videoElement.controls = true;
-      videoElement.src = window.URL.createObjectURL(response);
-      videoElement.addEventListener('loadeddata', () => {
-        loadingIndicator.style.display = 'none';
-      });
-
+      if(audioOnly){
+        const audioElement = document.createElement('audio');
+        audioElement.controls = true;
+        audioElement.src = window.URL.createObjectURL(response);
+        audioElement.addEventListener('loadeddata', () => {
+          loadingIndicator.style.display = 'none';
+        });
+  
+      } else {
+        const videoElement = document.createElement('video');
+        videoElement.controls = true;
+        videoElement.src = window.URL.createObjectURL(response);
+        videoElement.addEventListener('loadeddata', () => {
+          loadingIndicator.style.display = 'none';
+        });
+      }
+   
       const downloadLink = document.createElement('a');
       downloadLink.href = URL.createObjectURL(response);
       downloadLink.download = 'file.mp4';
