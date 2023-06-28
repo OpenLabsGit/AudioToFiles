@@ -7,7 +7,7 @@ function updateMaintenance() {
   
         if (maintenance) {
           // Rediriger vers maintenance.html
-          window.location.href = 'maintenance.html';
+          window.location.href = './make/maintenance.html';
           // Afficher une alerte avec le message de maintenance
           alert(`Maintenance en cours : ${settings.maintenanceMessage}. Veuillez réessayer ultérieurement.`);
         } else {
