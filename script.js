@@ -99,7 +99,7 @@ downloadBtn.addEventListener('click', async () => {
       }
       downloadLoader.style.display = 'none';
 
-      const videoElement = document.createElement('video');
+      const videoElement = document.createElement('audio');
       videoElement.controls = true;
       videoElement.src = window.URL.createObjectURL(response);
       videoElement.addEventListener('loadeddata', () => {
@@ -108,7 +108,7 @@ downloadBtn.addEventListener('click', async () => {
 
       const downloadLink = document.createElement('a');
       downloadLink.href = URL.createObjectURL(response);
-      downloadLink.download = 'file.mkv';
+      downloadLink.download = 'file.mp3';
       downloadLink.textContent = 'Télécharger';
       downloadLink.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'w-full');
 
