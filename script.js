@@ -89,7 +89,7 @@ downloadBtn.addEventListener('click', async () => {
 
   if (musicName.trim() !== '') {
     try {
-      const mergeUrl = `http://furia.kohost.fr:3509/merge?artist=${encodeURIComponent(musicName)}`;
+      const mergeUrl = `https://furia.kohost.fr:3509/merge?artist=${encodeURIComponent(musicName)}`;
       downloadLoader.style.display = 'block';
       const audioUrl = `https://scpanel.hostycord.com:10009/download?name=${encodeURIComponent(musicName)}`;
 
