@@ -102,28 +102,30 @@ downloadBtn.addEventListener('click', async () => {
       }
       downloadLoader.style.display = 'none';
 
-      if(audioOnly){
-        const audioElement = document.createElement('audio');
+      videoPreviewContainer.innerHTML = '';
+      if (audioOnly) {
+        let audioElement = document.createElement('audio');
         audioElement.controls = true;
         audioElement.src = window.URL.createObjectURL(response);
         audioElement.addEventListener('loadeddata', () => {
           loadingIndicator.style.display = 'none';
         });
-  
+        videoPreviewContainer.appendChild(audioElement);
       } else {
-        const videoElement = document.createElement('video');
+        let videoElement = document.createElement('video');
         videoElement.controls = true;
         videoElement.src = window.URL.createObjectURL(response);
         videoElement.addEventListener('loadeddata', () => {
           loadingIndicator.style.display = 'none';
         });
+        videoPreviewContainer.appendChild(videoElement);
       }
-   
+      
       const downloadLink = document.createElement('a');
       downloadLink.href = URL.createObjectURL(response);
       downloadLink.download = 'file.mp4';
       downloadLink.textContent = 'Télécharger';
-      downloadLink.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'w-full');
+      downloadLink.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'mt-8', 'rounded', 'w-full');
 
       const downloadIcon = document.createElement('svg');
       downloadIcon.classList.add('inline-block', 'w-4', 'h-4', 'mr-2');
@@ -133,8 +135,6 @@ downloadBtn.addEventListener('click', async () => {
 
       downloadLink.prepend(downloadIcon);
 
-      videoPreviewContainer.innerHTML = '';
-      videoPreviewContainer.appendChild(videoElement);
       videoPreviewContainer.appendChild(downloadLink);
 
       // Réinitialise le bouton de recherche
