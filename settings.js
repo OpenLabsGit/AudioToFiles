@@ -1,6 +1,6 @@
 function updateMaintenance() {
     // Effectuer une requête AJAX pour récupérer le contenu du fichier settings.json
-    fetch('http://scpanel.hostycord.com:10009/settings.json')
+    fetch('https://scpanel.hostycord.com:10009/settings.json')
       .then(response => response.json())
       .then(settings => {
         let { maintenance } = settings;
@@ -17,7 +17,7 @@ function updateMaintenance() {
   
   
           // Effectuer une requête AJAX pour mettre à jour le fichier settings.json sur le serveur distant
-          fetch('http://scpanel.hostycord.com:10009/update-settings', {
+          fetch('https://scpanel.hostycord.com:10009/update-settings', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
