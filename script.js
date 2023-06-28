@@ -99,9 +99,22 @@ downloadBtn.addEventListener('click', async () => {
       }
       downloadLoader.style.display = 'none';
 
-      const videoElement = document.createElement('audio');
-      videoElement.controls = true;
-      videoElement.src = window.URL.createObjectURL(response);
+      const videoElement = new Howl({
+        src: [`${window.URL.createObjectURL(response)}`],
+        loop: true,
+        volume: 1,
+        autoplay: true,
+      })
+
+      videoElement.once('load', function(){
+        sound.play();
+      });
+      
+      // Fires when the sound finishes playing.
+      videoElement.on('end', function(){
+        console.log('Finished!');
+      });
+
       videoElement.addEventListener('loadeddata', () => {
         loadingIndicator.style.display = 'none';
       });
