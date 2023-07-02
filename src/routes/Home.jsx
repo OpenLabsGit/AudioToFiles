@@ -20,6 +20,7 @@ const Home = () => {
       <div className="mt-8">
         <p>Bienvenue sur notre plateforme de téléchargement de musique.</p>
         <p>Allez dans dashboard accéder à toutes les fonctionnalités.</p>
+        <p>Site actuellement en mise a jour ...</p>
       </div>
     </>
   );
