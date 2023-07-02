@@ -13,7 +13,7 @@ import {
   UserProfile,
 } from "@clerk/clerk-react";
 
-const clerkPubKey = "pk_test_Z29vZC1zZWFndWxsLTQ5LmNsZXJrLmFjY291bnRzLmRldiQ";
+const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 
 import Home from "./routes/Home";
 import Politique from "./routes/Politique";
