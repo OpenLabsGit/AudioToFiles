@@ -13,7 +13,9 @@ import {
   UserProfile,
 } from "@clerk/clerk-react";
 
-const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+
+
+const clerkPubKey = import.meta.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 
 import Home from "./routes/Home";
 import Politique from "./routes/Politique";
