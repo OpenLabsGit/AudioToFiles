@@ -16,6 +16,7 @@ import {
 
 
 const clerkPubKey = import.meta.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+console.log(clerkPubKey)
 
 import Home from "./routes/Home";
 import Politique from "./routes/Politique";
