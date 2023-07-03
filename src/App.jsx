@@ -22,6 +22,7 @@ import Audio from "./routes/Audio";
 import Error from "./routes/Errors";
 import Navbars from "./components/NavBar";
 import Footer from "./components/Footer";
+import Contact from "./routes/Contact";
 import Dashboard from "./routes/Dashboard";
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/download/audio" element={<Audio />} />
             <Route path="/politiques" element={<Politique />} />
             <Route path="/errors" element={<Error />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
           <SignedOut>
