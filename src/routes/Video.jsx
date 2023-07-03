@@ -22,15 +22,20 @@ const Video = () => {
       )
       .then((response) => {
         const videos = response.data.items;
+        const thumbnail = document.querySelector('.thumbnail')
+        const titleHtml = document.querySelector('.title')
+        
         videos.forEach((video) => {
-          const { title, description } = video.snippet;
+          const { title, description, thumbnail } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
           console.log(video.snippet)
 
-          console.log("Titre :", title);
-          console.log("Description :", description);
-          console.log("Lien :", videoLink);
+          titleHtml.innerHTML = title;
+
+          thumbnail.src = thumbnail.default.url
+
+          titleHtml.appendChild(videoLink)
           console.log("-----");
         });
 
@@ -169,8 +174,8 @@ const Video = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center gap-8">
-          <img src="../../src/assets/video.svg" className="ml-8" alt="Video" />
-          <p className="mb-3 text-center text-gray-500 dark:text-gray-400">
+          <img src="../src/assets/video.svg" className="ml-8 thumbnail" alt="Video" />
+          <p className="mb-3 title text-center text-gray-500 dark:text-gray-400">
             Make sure you provide a good name or a good link for your video.
           </p>
         </div>
