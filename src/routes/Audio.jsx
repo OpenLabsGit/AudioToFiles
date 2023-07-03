@@ -34,9 +34,11 @@ const Audio = () => {
 
           console.log(videoLink);
 
-          thumbnail.src = thumbnails.default.url;
+          thumbnail.src = thumbnails.high.url;
 
           downloadAudio(video.id.videoId);
+
+          console.log(video.id.videoId);
         });
 
         const downloadAudio = (videoId) => {
@@ -163,6 +165,7 @@ const Audio = () => {
             <div className="mt-4">
               <img className="thumbnail" src="" alt="" />
               <h3 className="title"></h3>
+              <h2>Queue : </h2>
             </div>
           </div>
         </div>

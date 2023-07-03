@@ -31,7 +31,7 @@ const Dashboard = () => {
         </Link>
         <Link to="/download/video">
           <div className="max-w-md mx-auto my-4">
-            <div className="bg-white hover:bg-gray-100 transition-colors rounded-md flex justify-center items-center flex-col gap-4 shadow-md px-12 p-12">
+            <div className="bg-white hover:bg-gray-100 transition-colors rounded-md flex justify-center items-center flex-col gap-4 shadow-md px-20 p-20">
               <h6 className="text-xl font-medium">Vidéos</h6>
               <p className="text-base">
                 <FaVideo
