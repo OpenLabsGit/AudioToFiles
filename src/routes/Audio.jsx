@@ -30,7 +30,7 @@ const Audio = () => {
 
           console.log(video.snippet);
 
-          console.log(video.contentDetails);
+          console.log(video);
 
           titleHtml.innerHTML = title;
 
