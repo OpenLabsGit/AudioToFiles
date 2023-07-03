@@ -15,20 +15,23 @@ const Audio = () => {
 
   const downloadAudio = (videoId) => {
     const downloadUrl = `https://scpanel.hostycord.com:10009/download?videoId=${videoId}`;
-
-    axios
-      .get(downloadUrl, { responseType: "arraybuffer" })
+  
+    fetch(downloadUrl)
       .then((response) => {
-        console.log(response.data);
-        createAndDownloadBlob(response.data);
+        if (!response.ok) {
+          throw new Error('Error downloading video');
+        }
+        return response.blob();
+      })
+      .then((blob) => {
+        createAndDownloadBlob(blob);
       })
       .catch((error) => {
         console.error("Error downloading video:", error);
       });
   };
-
-  const createAndDownloadBlob = (data) => {
-    const blob = new Blob([data], { type: "audio/mp3" });
+  
+  const createAndDownloadBlob = (blob) => {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.style.display = "none";
@@ -38,8 +41,9 @@ const Audio = () => {
     a.click();
     window.URL.revokeObjectURL(url);
   };
-
   
+
+
   const searchVideos = (keywords) => {
     const apiKey = "AIzaSyDs9IaDQnj1z_OJUQ0Qd7nONvGQzDN-AP8";
     axios
@@ -54,16 +58,10 @@ const Audio = () => {
         const channelName = document.querySelector(".channel-name");
 
         videos.forEach((video) => {
-          const { title, description, thumbnails, channelTitle, channelId  } = video.snippet;
+          const { title, thumbnails, channelTitle  } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
           const videoIds = video.id.videoId 
-
-          console.log(videoIds)
-
-          console.log(video.snippet);
-
-          console.log(video);
 
           titleHtml.innerHTML = title;
 
