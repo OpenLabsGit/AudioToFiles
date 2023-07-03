@@ -31,8 +31,6 @@ const App = () => {
         <Navbars />
         <div className="mt-12">
           <Routes>
-            <Route path="/sign-in" element={<SignIn redirectUrl='https://audiotofiles.com/dashboard' />}/>
-            <Route path="/sign-up" element={<SignUp redirectUrl='https://audiotofiles.com' />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/download/video" element={<Video />} />
