@@ -21,10 +21,10 @@ const Dashboard = () => {
       <div className="flex-row flex items-center mt-12 justify-center gap-8">
         <Link to="/download/audio" className="">
           <div className="max-w-md mx-auto my-4">
-            <div className="bg-white hover:bg-gray-100 transition-colors rounded-md flex justify-center items-center flex-col gap-4 shadow-md p-12 px-12">
+            <div className="bg-white hover:bg-gray-100 transition-colors rounded-md flex justify-center items-center flex-col gap-4 shadow-md py-20 px-20">
               <h6 className="text-xl font-medium">Audio</h6>
               <p className="text-base">
-                <FaMusic size={50} />
+                <FaMusic size={100} />
               </p>
             </div>
           </div>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <FaVideo
                   className="video"
                   onMouseEnter={handleColor}
-                  size={50}
+                  size={100}
                 />
               </p>
             </div>
