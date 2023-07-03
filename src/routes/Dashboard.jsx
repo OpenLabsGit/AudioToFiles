@@ -12,9 +12,9 @@ const Dashboard = () => {
   return (
     <div className="text-center flex-col flex items-center justify-center">
       {isSignedIn ? (
-        <h5 className="text-2xl">
+   <><img src={user.imageUrl} alt="Image de l'utilisateur" className="w-16 h-16 rounded-full mt-4" /><h5 className="text-2xl">
           Bonjour, {user.firstName} {user.lastName} !
-        </h5>
+        </h5></>
       ) : (
         <h5 className="text-2xl">Bonjour, visiteur !</h5>
       )}
