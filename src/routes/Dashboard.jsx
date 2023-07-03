@@ -4,17 +4,16 @@ import { useUser } from "@clerk/clerk-react";
 
 const Dashboard = () => {
   const { user, isSignedIn } = useUser();
-
-  function handleColor(event) {
-    event.target.classList.add("text-gray-400");
-  }
-
+  
   return (
     <div className="text-center flex-col flex items-center justify-center">
       {isSignedIn ? (
-   <><img src={user.imageUrl} alt="Image de l'utilisateur" className="w-16 h-16 rounded-full mt-4" /><h5 className="text-2xl">
+   <>
+   <img src={user.imageUrl} alt="Image de l'utilisateur" className="w-16 h-16 rounded-full mt-4" />
+   <h5 className="text-2xl mt-4">
           Bonjour, {user.firstName} {user.lastName} !
-        </h5></>
+        </h5>
+        </>
       ) : (
         <h5 className="text-2xl">Bonjour, visiteur !</h5>
       )}
@@ -24,7 +23,7 @@ const Dashboard = () => {
             <div className="bg-white hover:bg-gray-100 transition-colors rounded-md flex justify-center items-center flex-col gap-4 shadow-md py-20 px-20">
               <h6 className="text-xl font-medium">Audio</h6>
               <p className="text-base">
-                <FaMusic size={100} />
+                <FaMusic size={70} />
               </p>
             </div>
           </div>
@@ -36,8 +35,7 @@ const Dashboard = () => {
               <p className="text-base">
                 <FaVideo
                   className="video"
-                  onMouseEnter={handleColor}
-                  size={100}
+                  size={70}
                 />
               </p>
             </div>

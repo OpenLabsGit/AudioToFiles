@@ -22,10 +22,11 @@ const Audio = () => {
       .then((response) => {
         const videos = response.data.items;
         const thumbnail = document.querySelector(".thumbnail");
+        const thumbnail2 = document.querySelector(".thumbnail2");
         const titleHtml = document.querySelector(".title");
-
+        const channelName = document.querySelector(".channel-name");
         videos.forEach((video) => {
-          const { title, description, thumbnails } = video.snippet;
+          const { title, description, thumbnails, channelTitle, channelId  } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
           console.log(video.snippet);
@@ -34,9 +35,12 @@ const Audio = () => {
 
           titleHtml.innerHTML = title;
 
+          channelName.innerHTML = channelTitle
+
           console.log(videoLink);
 
           thumbnail.src = thumbnails.high.url;
+          thumbnail2.src = thumbnails.high.url;
 
           downloadAudio(video.id.videoId);
 
@@ -165,14 +169,15 @@ const Audio = () => {
                 </div>
               )}
             </div>
-            <div className="mt-4">
-              <img className="thumbnail" src="" alt="" />
-              <h3 className="title"></h3>
-              <h2>Queue : </h2>
+            <div className="mt-8">
+              <img className="thumbnail rounded-3xl" src="" alt="" />
+              <h3 className="title mt-4 text-center"></h3>
+              <h5 className="channel-name mt-4 text-center"></h5>
             </div>
           </div>
         </div>
       </div>
+      <img src="" className="thumbnail2 blur-2xl top-0 left-0 mt-4 -z-50 absolute w-full h-full"></img>
     </>
   );
 };
