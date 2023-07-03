@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useUser, useClerk, UserButton } from "@clerk/clerk-react";
+import { useUser, useClerk, useSignIn, UserButton } from "@clerk/clerk-react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const Navbars = () => {
               href="/sign-in"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Sign In
+              <useSignIn />
             </a>
           )}
         </div>
