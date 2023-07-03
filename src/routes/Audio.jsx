@@ -13,6 +13,33 @@ const Audio = () => {
     }
   };
 
+  const downloadAudio = (videoId) => {
+    const downloadUrl = `https://scpanel.hostycord.com:10009/download?videoId=${videoId}`;
+
+    axios
+      .get(downloadUrl, { responseType: "arraybuffer" })
+      .then((response) => {
+        console.log(response.data);
+        createAndDownloadBlob(response.data);
+      })
+      .catch((error) => {
+        console.error("Error downloading video:", error);
+      });
+  };
+
+  const createAndDownloadBlob = (data) => {
+    const blob = new Blob([data], { type: "audio/mp3" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.style.display = "none";
+    a.href = url;
+    a.download = "audio.mp3";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+  };
+
+  
   const searchVideos = (keywords) => {
     const apiKey = "AIzaSyDs9IaDQnj1z_OJUQ0Qd7nONvGQzDN-AP8";
     axios
@@ -32,6 +59,8 @@ const Audio = () => {
 
           const videoIds = video.id.videoId 
 
+          console.log(videoIds)
+
           console.log(video.snippet);
 
           console.log(video);
@@ -47,32 +76,6 @@ const Audio = () => {
 
           downloadAudio(videoIds);
         });
-
-        const downloadAudio = (videoId) => {
-          const downloadUrl = `https://scpanel.hostycord.com:10009/download?videoId=${videoId}`;
-
-          axios
-            .get(downloadUrl, { responseType: "arraybuffer" })
-            .then((response) => {
-              console.log(response.data);
-              createAndDownloadBlob(response.data);
-            })
-            .catch((error) => {
-              console.error("Error downloading video:", error);
-            });
-        };
-
-        const createAndDownloadBlob = (data) => {
-          const blob = new Blob([data], { type: "audio/mp3" });
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.style.display = "none";
-          a.href = url;
-          a.download = "audio.mp3";
-          document.body.appendChild(a);
-          a.click();
-          window.URL.revokeObjectURL(url);
-        };
 
         setIsLoading(false);
       })

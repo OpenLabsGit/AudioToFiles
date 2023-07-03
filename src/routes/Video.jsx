@@ -13,6 +13,33 @@ const Video = () => {
     }
   };
 
+
+  const downloadVideo = (videoId) => {
+    const downloadUrl = `http://furia.kohost.fr:3509/download?link=https://www.youtube.com/watch?v=${videoId}`;
+  
+    axios
+      .get(downloadUrl, { responseType: 'arraybuffer' })
+      .then((response) => {
+        createAndDownloadBlob(response.data);
+      })
+      .catch((error) => {
+        console.error('Error downloading video:', error);
+      });
+  };        
+
+  const createAndDownloadBlob = (data) => {
+    const blob = new Blob([data], { type: 'video/mp4' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'video.mp4';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+  };
+
+
   const searchVideos = (keywords) => {
     const apiKey = "AIzaSyDs9IaDQnj1z_OJUQ0Qd7nONvGQzDN-AP8";
 
@@ -26,7 +53,7 @@ const Video = () => {
         const titleHtml = document.querySelector('.title')
         
         videos.forEach((video) => {
-          const { title, description, thumbnails } = video.snippet;
+          const { title, thumbnails } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
           console.log(video.snippet)
@@ -39,33 +66,6 @@ const Video = () => {
 
           downloadVideo(video.id.videoId);
         });
-
-
-        const downloadVideo = (videoId) => {
-          const downloadUrl = `http://furia.kohost.fr:3509/download?link=https://www.youtube.com/watch?v=${videoId}`;
-        
-          axios
-            .get(downloadUrl, { responseType: 'arraybuffer' })
-            .then((response) => {
-              createAndDownloadBlob(response.data);
-            })
-            .catch((error) => {
-              console.error('Error downloading video:', error);
-            });
-        };        
-
-        const createAndDownloadBlob = (data) => {
-          const blob = new Blob([data], { type: 'video/mp4' });
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.style.display = 'none';
-          a.href = url;
-          a.download = 'video.mp4';
-          document.body.appendChild(a);
-          a.click();
-          window.URL.revokeObjectURL(url);
-        };
-
         
         setIsLoading(false);
       })
