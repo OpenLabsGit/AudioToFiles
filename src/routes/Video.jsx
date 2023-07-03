@@ -14,11 +14,11 @@ const Video = () => {
   };
 
   const searchVideos = (keywords) => {
-    const apiKey = "VOTRE_CLE_API_YOUTUBE";
+    const apiKey = "AIzaSyDs9IaDQnj1z_OJUQ0Qd7nONvGQzDN-AP8";
 
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${keywords}&key=${apiKey}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${keywords}&key=${apiKey}`
       )
       .then((response) => {
         const videos = response.data.items;
