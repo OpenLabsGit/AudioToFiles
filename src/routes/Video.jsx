@@ -26,14 +26,14 @@ const Video = () => {
         const titleHtml = document.querySelector('.title')
         
         videos.forEach((video) => {
-          const { title, description, thumbnail } = video.snippet;
+          const { title, description, thumbnails } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
           console.log(video.snippet)
 
           titleHtml.innerHTML = title;
 
-          thumbnail.src = thumbnail.default.url
+          thumbnail.src = thumbnails.default.url
 
           titleHtml.appendChild(videoLink)
           console.log("-----");
