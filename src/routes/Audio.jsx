@@ -54,7 +54,7 @@ const Audio = () => {
   };
 
   const downloadAudio = (videoId) => {
-    const downloadUrl = `http://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
+    const downloadUrl = `https://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
 
     axios
       .get(downloadUrl, { responseType: "arraybuffer" })
