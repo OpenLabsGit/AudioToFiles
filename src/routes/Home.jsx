@@ -19,7 +19,8 @@ const Home = () => {
       </div>
       <div className="mt-8">
         <p>Bienvenue sur notre plateforme de téléchargement de musique.</p>
-        <p>Connectez-vous pour accéder à toutes les fonctionnalités.</p>
+        <p>Allez dans dashboard accéder à toutes les fonctionnalités.</p>
+        <p>Site actuellement en mise a jour ...</p>
       </div>
     </>
   );
