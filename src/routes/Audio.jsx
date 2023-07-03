@@ -37,12 +37,12 @@ const Audio = () => {
 
           thumbnail.src = thumbnails.default.url
 
-          downloadVideo(video.id.videoId);
+          downloadAudio(video.id.videoId);
         });
 
 
-        const downloadVideo = (videoId) => {
-          const downloadUrl = `http://furia.kohost.fr:3509/download?link=https://www.youtube.com/watch?v=${videoId}`;
+        const downloadAudio = (videoId) => {
+          const downloadUrl = `http://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
         
           axios
             .get(downloadUrl, { responseType: 'arraybuffer' })
@@ -55,7 +55,7 @@ const Audio = () => {
         };        
 
         const createAndDownloadBlob = (data) => {
-          const blob = new Blob([data], { type: 'video/mp4' });
+          const blob = new Blob([data], { type: 'audio/mp3' });
           const url = window.URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.style.display = 'none';
