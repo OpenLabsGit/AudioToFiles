@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^4.21.1",
     "@material-tailwind/react": "^2.0.4",
     "@swup/progress-plugin": "^2.0.0",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
     "flowbite": "^1.6.6",
