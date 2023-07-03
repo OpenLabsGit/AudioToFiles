@@ -25,7 +25,6 @@ const Audio = () => {
         const videos = response.data.items;
         const thumbnail = document.querySelector(".thumbnail");
         const titleHtml = document.querySelector(".title");
-        const durationHtml = document.querySelector(".duration");
 
         videos.forEach((video) => {
           const { title, description, thumbnails } = video.snippet;
@@ -41,7 +40,6 @@ const Audio = () => {
 
           titleHtml.innerHTML = title;
 
-          durationHtml.innerHTML = decodedDuration;
 
           console.log(videoLink);
 
@@ -208,7 +206,7 @@ const Audio = () => {
                         <div className="flex justify-between">
                           <div>
                             <h3 className="text-2xl text-grey-darkest title font-medium">
-                              
+
                             </h3>
                             <p className="text-sm channel-name text-grey mt-1"></p>
                           </div>
