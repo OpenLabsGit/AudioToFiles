@@ -1,7 +1,7 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import NotFound from "./errors/NotFound";
-import LoadingBar from 'react-top-loading-bar';
+import LoadingBar from "react-top-loading-bar";
 
 import {
   SignedIn,
@@ -12,8 +12,6 @@ import {
   SignUp,
   UserProfile,
 } from "@clerk/clerk-react";
-
-
 
 const clerkPubKey = "pk_live_Y2xlcmsuYXVkaW90b2ZpbGVzLmNvbSQ";
 
@@ -27,43 +25,14 @@ import Footer from "./components/Footer";
 import Dashboard from "./routes/Dashboard";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const loadingBarRef = useRef(null);
-  const unlisten = useNavigate();
-
-  useEffect(() => {
-    const startLoading = () => {
-      setIsLoading(true);
-      loadingBarRef.current.continuousStart();
-    };
-
-    const completeLoading = () => {
-      setIsLoading(false);
-      loadingBarRef.current.complete();
-    };
-
-    const handleRouteChange = () => {
-      startLoading();
-      // Ici, vous pouvez ajouter une logique de chargement spécifique à chaque route si nécessaire
-      // Par exemple, si vous avez des appels API ou des chargements de données à effectuer
-
-      // Simuler un délai de chargement de 2 secondes (à remplacer avec votre propre logique)
-      setTimeout(completeLoading, 2000);
-    };
-
-     unlisten(handleRouteChange);
-    return () => {
-      unlisten();
-    };
-  }, [unlisten]);
-
   return (
     <>
       <ClerkProvider publishableKey={clerkPubKey}>
         <Navbars />
         <div className="mt-12">
-          {isLoading && <LoadingBar ref={loadingBarRef} height={3} color="#1BC5BD" />}
           <Routes>
+            <Route path="/sign-in" element={<SignIn redirectUrl='https://audiotofiles.com/dashboard' />}/>
+            <Route path="/sign-up" element={<SignUp redirectUrl='https://audiotofiles.com' />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/download/video" element={<Video />} />
