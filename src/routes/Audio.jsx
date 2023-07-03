@@ -32,12 +32,6 @@ const Audio = () => {
 
           console.log(video.snippet);
 
-          const videoDetails = video.contentDetails;
-          const duration = videoDetails.duration;
-
-          const decodedDuration = duration
-          console.log(decodedDuration);
-
           titleHtml.innerHTML = title;
 
 
