@@ -24,7 +24,7 @@ const Navbars = () => {
           <img
             width={50}
             height={50}
-            src="../../public/musique-min.png"
+            src="https://i.ibb.co/VDBXghV/musique-min.png"
             alt=""
           />
         </Link>
