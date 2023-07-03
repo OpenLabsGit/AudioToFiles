@@ -15,7 +15,7 @@ import {
 
 
 
-const clerkPubKey = "pk_test_Z29vZC1zZWFndWxsLTQ5LmNsZXJrLmFjY291bnRzLmRldiQ";
+const clerkPubKey = "pk_live_Y2xlcmsuYXVkaW90b2ZpbGVzLmNvbSQ";
 
 import Home from "./routes/Home";
 import Politique from "./routes/Politique";
