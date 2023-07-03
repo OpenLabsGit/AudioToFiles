@@ -35,7 +35,7 @@ const Audio = () => {
           const videoDetails = video.contentDetails;
           const duration = videoDetails.duration;
 
-          const decodedDuration = decodeVideoDuration(duration);
+          const decodedDuration = duration
           console.log(decodedDuration);
 
           titleHtml.innerHTML = title;
@@ -60,28 +60,7 @@ const Audio = () => {
       });
   };
 
-  const decodeVideoDuration = (duration) => {
-    const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
-    const matches = duration.match(regex);
 
-    const hours = matches[1] ? parseInt(matches[1]) : 0;
-    const minutes = matches[2] ? parseInt(matches[2]) : 0;
-    const seconds = matches[3] ? parseInt(matches[3]) : 0;
-
-    let decodedDuration = "";
-
-    if (hours > 0) {
-      decodedDuration += `${hours} hour${hours > 1 ? "s" : ""} `;
-    }
-    if (minutes > 0) {
-      decodedDuration += `${minutes} minute${minutes > 1 ? "s" : ""} `;
-    }
-    if (seconds > 0) {
-      decodedDuration += `${seconds} second${seconds > 1 ? "s" : ""}`;
-    }
-
-    return decodedDuration.trim();
-  };
 
   const downloadAudio = (videoId) => {
     const downloadUrl = `https://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
