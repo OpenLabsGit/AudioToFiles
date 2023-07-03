@@ -33,12 +33,9 @@ const Audio = () => {
   
   const createAndDownloadBlob = (blob) => {
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.style.display = "none";
-    a.href = url;
-    a.download = "audio.mp3";
+    const a = document.createElement("audio");
+    a.src = url;
     document.body.appendChild(a);
-    a.click();
     window.URL.revokeObjectURL(url);
   };
   
