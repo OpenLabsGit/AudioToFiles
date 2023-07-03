@@ -29,18 +29,18 @@ const Navbars = () => {
           />
         </Link>
         <div className="space-x-6 flex flex-row items-center gap-2 justify-center">
-          <a
-            href="/dashboard"
+          <Link
+            to={"/dashboard"}
             className="text-white dark:text-gray-800 hover:text-gray-300 transition duration-300 ease-in-out"
           >
             Dashboard
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to={"/contact"}
             className="text-white dark:text-gray-800 hover:text-gray-300 transition duration-300 ease-in-out"
           >
             Contacts
-          </a>
+          </Link>
 
           {isSignedIn ? (
             <UserButton />
