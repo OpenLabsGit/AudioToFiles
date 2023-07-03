@@ -48,7 +48,7 @@ const Audio = () => {
         });
 
         const downloadAudio = (videoId) => {
-          const downloadUrl = `http://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
+          const downloadUrl = `https://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
 
           axios
             .get(downloadUrl, { responseType: "arraybuffer" })
@@ -121,9 +121,9 @@ const Audio = () => {
           </li>
         </ol>
       </nav>
-      <div className="mt-10 flex justify-center items-center">
+      <div className="mt-10 flex justify-center flex-row items-center">
         <div className="w-full max-w-sm">
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg px-4 py-6">
+          <div className="bg-white flex justify-center flex-col items-stretch dark:bg-gray-800 shadow-lg rounded-lg px-4 py-6">
             <h2 className="text-2xl font-bold mb-4">Audio Downloader</h2>
             <div>
               <input
@@ -177,7 +177,7 @@ const Audio = () => {
           </div>
         </div>
       </div>
-      <img src="" className="thumbnail2 blur-2xl top-0 left-0 mt-4 -z-50 absolute w-full h-full"></img>
+      <img src="" className="thumbnail2 blur-2xl brightness-60 scale-125 top-0 left-0 mt-4 -z-50 absolute w-full h-full"></img>
     </>
   );
 };
