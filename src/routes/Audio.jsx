@@ -25,9 +25,12 @@ const Audio = () => {
         const thumbnail2 = document.querySelector(".thumbnail2");
         const titleHtml = document.querySelector(".title");
         const channelName = document.querySelector(".channel-name");
+
         videos.forEach((video) => {
           const { title, description, thumbnails, channelTitle, channelId  } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
+
+          const videoIds = video.id.videoId 
 
           console.log(video.snippet);
 
@@ -42,13 +45,11 @@ const Audio = () => {
           thumbnail.src = thumbnails.high.url;
           thumbnail2.src = thumbnails.high.url;
 
-          downloadAudio(video.id.videoId);
-
-          console.log(video.id.videoId);
+          downloadAudio(videoIds);
         });
 
         const downloadAudio = (videoId) => {
-          const downloadUrl = `https://scpanel.hostycord.com:10009/download?link=https://www.youtube.com/watch?v=${videoId}`;
+          const downloadUrl = `https://scpanel.hostycord.com:10009/download?videoId=${videoId}`;
 
           axios
             .get(downloadUrl, { responseType: "arraybuffer" })
