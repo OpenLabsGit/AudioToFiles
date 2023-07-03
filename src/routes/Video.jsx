@@ -26,6 +26,8 @@ const Video = () => {
           const { title, description } = video.snippet;
           const videoLink = `https://www.youtube.com/watch?v=${video.id.videoId}`;
 
+          console.log(video.snippet)
+
           console.log("Titre :", title);
           console.log("Description :", description);
           console.log("Lien :", videoLink);
