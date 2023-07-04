@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { SignedOut, RedirectToSignIn, useUser } from '@clerk/clerk-react';
 import AOS from 'aos';
 
