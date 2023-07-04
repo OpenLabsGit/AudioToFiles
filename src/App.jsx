@@ -1,7 +1,6 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import NotFound from "./errors/NotFound";
-import LoadingBar from "react-top-loading-bar";
 
 import {
   SignedIn,
